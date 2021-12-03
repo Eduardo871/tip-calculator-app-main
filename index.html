@@ -93,34 +93,30 @@
     }
     tip.onchange = (v) => {
       const value = v.target.value;
-      if(value > 0 && result[1] !== 0){
+      if(value > 0 ){
         document.querySelector('#text').classList = 'text desactive';
-        for (let index = 0; index < tip_default.length; index++) {
-        const element = tip_default[index];
-        element.classList = "tip_default desactive";
-      }
         result[1] = value;
         people.focus()
       }else{
         document.querySelector('#text').classList = 'text';
       }
     }
-
+  let active = 0;
   for (let index = 0; index < tip_default.length; index++) {
     const element = tip_default[index];
-    let active = 0;
     element.onclick = (v) => {
       const value = Number(v.target.childNodes[0].data.slice(0,-1));
       if(element.classList[1] === "desactive" && result[1] === 0){
         active = value;
         result[1] = value;
-        people.focus();
         element.classList = "tip_default active";
-      }else if (active === value){
+        console.log("entrooo")
+        people.focus();
+      }else if (active == value){
         result[1] = 0;
+        active = 0;
         element.classList = "tip_default desactive";
       }
-      console.log(active+' '+value)
     }
   }
 
@@ -146,6 +142,8 @@
       bill.value = "";
       tip.value = "";
       people.value = "";
+      active = 0;
+      result = [0,0,0]
       document.querySelector('.tip_amount_resul').innerHTML ='$0.00';
       document.querySelector('.total_resul').innerHTML = '$0.00';
       for (let index = 0; index < tip_default.length; index++) {
