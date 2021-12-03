@@ -1,0 +1,273 @@
+@use "constants";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: constants.$font;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+// -----------Grid------------
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-color: constants.$primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.backgroundCalculator {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 45rem;
+  height: 22rem;
+  background: constants.$blackOrWhite;
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 5rem;
+}
+
+input {
+  border: none;
+  border-radius: 3px;
+  background-color: constants.$Light_grayish_cyan;
+  width: 85%;
+  height: 2.2rem;
+  font-size: 1.2rem;
+  text-align: end;
+  padding: 10px;
+  font-family: constants.$font;
+  font-weight: 700;
+}
+input::placeholder {
+  text-align: start;
+  font-weight: 400;
+}
+h1 {
+  color: constants.$terciary-color;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.input {
+  position: relative;
+  margin-top: 0.5rem;
+  svg {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .background {
+    height: 140vh;
+  }
+  .backgroundCalculator {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0;
+    width: 100%;
+    height: 40rem;
+    align-items: center;
+    align-content: center;
+    padding: 1rem;
+  }
+  input {
+    width: 90%;
+  }
+}
+
+@media (max-width: 700px) and (orientation: landscape) {
+  .background {
+    height: auto;
+  }
+  .backgroundCalculator {
+    width: 80%;
+    margin-top: 4rem;
+  }
+}
+// Left side of calculator
+
+.column1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 1rem;
+  .row2 {
+    .active {
+      background-color: constants.$fifty-color;
+      border: constants.$fifty-color 1px solid;
+      color: constants.$secondary-color;
+    }
+    button {
+      background-color: constants.$secondary-color;
+      color: constants.$Light_grayish_cyan;
+      font-weight: 700;
+      border-radius: 5px;
+      font-size: 1.3rem;
+      font-family: constants.$font;
+      cursor: pointer;
+    }
+    input {
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .grid_row2 {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 0.5rem;
+      width: 80%;
+    }
+  }
+}
+
+.text {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  font-size: 1rem;
+  span {
+    color: red;
+  }
+}
+.text.desactive {
+  span {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .column1 {
+    width: 100%;
+    .row1 {
+      margin-bottom: 1rem;
+      input {
+        width: 90%;
+      }
+    }
+    .row2 {
+      margin-bottom: 1rem;
+      .grid_row2 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        width: 90%;
+        button {
+          font-size: 1.2;
+        }
+      }
+    }
+  }
+}
+// Right side of calculator
+.column2 {
+  background-color: constants.$secondary-color;
+  color: white;
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  .text1 {
+    width: 5rem;
+  }
+  .row1 {
+    width: 95%;
+    .tipAmout,
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h1 {
+        color: constants.$blackOrWhite;
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+      p {
+        color: constants.$fourty-color;
+        font-size: 0.7rem;
+        font-weight: 400;
+      }
+      .number {
+        width: 8rem;
+        overflow-y: hidden;
+
+        h1 {
+          color: constants.$fifty-color;
+          font-size: 2.4rem;
+        }
+      }
+    }
+    .total {
+      margin-top: 1rem;
+    }
+  }
+  .row2 {
+    width: 95%;
+    button {
+      width: 15rem;
+      background-color: constants.$fifty-color;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: hsl(187, 11%, 32%);
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .column2 {
+    width: 100%;
+    padding: 2rem;
+    .row1 {
+      .tipAmout,
+      .total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .number {
+          width: 7rem;
+          h1 {
+            text-justify: center;
+            text-align: center;
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+
+    .row2 {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

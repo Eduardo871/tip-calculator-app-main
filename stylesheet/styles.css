@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-color: #c5e4e7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.backgroundCalculator {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 45rem;
+  height: 22rem;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 5rem;
+}
+
+input {
+  border: none;
+  border-radius: 3px;
+  background-color: #f4fafa;
+  width: 85%;
+  height: 2.2rem;
+  font-size: 1.2rem;
+  text-align: end;
+  padding: 10px;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+}
+
+input::placeholder {
+  text-align: start;
+  font-weight: 400;
+}
+
+h1 {
+  color: #5e7a7d;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.input {
+  position: relative;
+  margin-top: 0.5rem;
+}
+.input svg {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+@media screen and (max-width: 700px) {
+  .background {
+    height: 140vh;
+  }
+
+  .backgroundCalculator {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0;
+    width: 100%;
+    height: 40rem;
+    align-items: center;
+    align-content: center;
+    padding: 1rem;
+  }
+
+  input {
+    width: 90%;
+  }
+}
+@media (max-width: 700px) and (orientation: landscape) {
+  .background {
+    height: auto;
+  }
+
+  .backgroundCalculator {
+    width: 80%;
+    margin-top: 4rem;
+  }
+}
+.column1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 1rem;
+}
+.column1 .row2 .active {
+  background-color: #26c0ab;
+  border: #26c0ab 1px solid;
+  color: #00494d;
+}
+.column1 .row2 button {
+  background-color: #00494d;
+  color: #f4fafa;
+  font-weight: 700;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  font-family: "Space Mono", monospace;
+  cursor: pointer;
+}
+.column1 .row2 input {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.column1 .row2 .grid_row2 {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.5rem;
+  width: 80%;
+}
+
+.text {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  font-size: 1rem;
+}
+.text span {
+  color: red;
+}
+
+.text.desactive span {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .column1 {
+    width: 100%;
+  }
+  .column1 .row1 {
+    margin-bottom: 1rem;
+  }
+  .column1 .row1 input {
+    width: 90%;
+  }
+  .column1 .row2 {
+    margin-bottom: 1rem;
+  }
+  .column1 .row2 .grid_row2 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 90%;
+  }
+  .column1 .row2 .grid_row2 button {
+    font-size: 1.2;
+  }
+}
+.column2 {
+  background-color: #00494d;
+  color: white;
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+.column2 .text1 {
+  width: 5rem;
+}
+.column2 .row1 {
+  width: 95%;
+}
+.column2 .row1 .tipAmout,
+.column2 .row1 .total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.column2 .row1 .tipAmout h1,
+.column2 .row1 .total h1 {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.column2 .row1 .tipAmout p,
+.column2 .row1 .total p {
+  color: #7f9c9f;
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+.column2 .row1 .tipAmout .number,
+.column2 .row1 .total .number {
+  width: 8rem;
+  overflow-y: hidden;
+}
+.column2 .row1 .tipAmout .number h1,
+.column2 .row1 .total .number h1 {
+  color: #26c0ab;
+  font-size: 2.4rem;
+}
+.column2 .row1 .total {
+  margin-top: 1rem;
+}
+.column2 .row2 {
+  width: 95%;
+}
+.column2 .row2 button {
+  width: 15rem;
+  background-color: #26c0ab;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #49585b;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .column2 {
+    width: 100%;
+    padding: 2rem;
+  }
+  .column2 .row1 .tipAmout,
+.column2 .row1 .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .column2 .row1 .tipAmout .number,
+.column2 .row1 .total .number {
+    width: 7rem;
+  }
+  .column2 .row1 .tipAmout .number h1,
+.column2 .row1 .total .number h1 {
+    text-justify: center;
+    text-align: center;
+    font-size: 2rem;
+  }
+  .column2 .row2 {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  .column2 .row2 button {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
